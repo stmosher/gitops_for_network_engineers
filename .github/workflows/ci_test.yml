@@ -1,0 +1,31 @@
+name: test changes
+
+on:
+  pull_request:
+    branches:
+      - test
+
+jobs:
+  test_branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: update ubuntu
+        run: sudo apt-get update
+      - name: pip install python modules
+        run: pip install -r requirements.txt
+      - name: Push configs to lab devices
+        run: python3 push.py
+        env:
+          ENVIRONMENT: test
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+      - name: Pause for convergence
+        run: sleep 20
+      - name: Test lab device configurations
+        run: python3 test.py
+        env:
+          ENVIRONMENT: test
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}

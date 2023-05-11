@@ -11,6 +11,12 @@ spanning-tree extend system-id
 interface Loopback0
   ip address 172.16.0.10 255.255.255.255
 !
+interface Tunnel1
+  ip address 172.16.1.1 255.255.255.0
+  tunnel source 10.0.0.10
+  tunnel destination 10.0.0.11
+  no shutdown
+!
 interface GigabitEthernet1
  ip address dhcp
  negotiation auto
