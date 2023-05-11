@@ -47,7 +47,7 @@ def device_configure(configs, ip) -> str:
         for c in configs:
             ssh.send(c)
             output = prompt(ssh)
-            print(output)
+            # print(output)
         ssh.close()
         return output
     except Exception as e:
@@ -62,7 +62,7 @@ def main():
         print(device_config_filename)
         with open(device_config_filename, "r") as f:
             config = f.readlines()
-        print(config)
+        # print(config)
         if environment == "test":
             device = name_translation.get(device)
         device_configure(config, devices_dict[environment][device])
