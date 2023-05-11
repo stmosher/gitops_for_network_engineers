@@ -16,7 +16,7 @@ interface Tunnel1
   tunnel source 10.0.0.11
   tunnel destination 10.0.0.10
   ip ospf authentication message-digest
-  ip ospf message-digest-key 1 md5 0 pass2
+  ip ospf message-digest-key 1 md5 0 pass1
   no shutdown
 !
 interface GigabitEthernet1
