@@ -3,3 +3,6 @@ tests:
   - command: show interface Tunnel1
     assertions:
       - Tunnel1 is up, line protocol is up
+  - command: show ip ospf neighbor 172.16.0.10
+    assertions:
+      - State is FULL
