@@ -6,3 +6,6 @@ tests:
   - command: show ip ospf neighbor 172.16.0.11
     assertions:
       - State is FULL
+  - command: sh ip ospf interface tunnel1
+    assertions:
+      - Youngest key id is 1
