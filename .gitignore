@@ -1,0 +1,39 @@
+### Misc ###
+venv*
+venv/
+.virl/
+.virlrc
+*.pyc
+*.retry
+envfile.sh
+*.signed.bin
+.cache/
+ansible_collections/
+mdd.tgz
+mdd_repo/
+nso_url.txt
+nso_host.txt
+xe1_host.txt
+xeswitch1_host.txt
+xr1_host.txt
+nx1_host.txt
+*rollback.yaml
+# drop local scripts here that are only meant for your environment.
+misc-tools/
+# data and other configs we don't want being committed.
+output_data/
+tools/nso-oc-services/
+
+### JetBrains products ###
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries
+.idea/**/shelf
+*.iws
+
+### VS Code ###
+.vscode/
+
+### Mac ###
+*.DS_Store

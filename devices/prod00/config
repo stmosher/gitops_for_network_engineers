@@ -1,0 +1,31 @@
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname ip-10-0-0-10
+!
+no aaa new-model
+!
+spanning-tree extend system-id
+!
+interface Loopback0
+  ip address 172.16.0.10 255.255.255.255
+!
+interface GigabitEthernet1
+ ip address dhcp
+ negotiation auto
+ no mop enabled
+ no mop sysid
+!
+ip ssh rsa keypair-name ssh-key
+ip ssh version 2
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ exec-timeout 0 0
+ login local
+ transport input ssh
+line vty 5 20
+ login local
+ transport input ssh
